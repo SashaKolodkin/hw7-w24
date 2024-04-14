@@ -3,35 +3,34 @@ window.addEventListener('DOMContentLoaded', function() {
 
     const video = document.getElementById('player1');
 
-    video.autoplay = false;
     video.loop = false;
 
-    // play button
-    document.getElementById('playButton').addEventListener('click', function() {
+    // Play button
+    document.getElementById('play').addEventListener('click', function() {
         video.play();
         console.log('Play button clicked');
     });
 
-    // pause button
-    document.getElementById('pauseButton').addEventListener('click', function() {
+    // Pause button
+    document.getElementById('pause').addEventListener('click', function() {
         video.pause();
         console.log('Pause button clicked');
     });
 
     // Slow down button
-    document.getElementById('slowButton').addEventListener('click', function() {
+    document.getElementById('slower').addEventListener('click', function() {
         video.playbackRate *= 0.9;
         console.log(`New speed: ${video.playbackRate}`);
     });
 
-    // speed button
-    document.getElementById('speedButton').addEventListener('click', function() {
+    // Speed up button
+    document.getElementById('faster').addEventListener('click', function() {
         video.playbackRate /= 0.9;
         console.log(`New speed: ${video.playbackRate}`);
     });
 
-    // skip  button
-    document.getElementById('skipButton').addEventListener('click', function() {
+    // Skip ahead button
+    document.getElementById('skip').addEventListener('click', function() {
         const newTime = video.currentTime + 10;
         if (newTime >= video.duration) {
             video.currentTime = 0;
@@ -41,26 +40,27 @@ window.addEventListener('DOMContentLoaded', function() {
         console.log(`Skipped ahead. New time: ${video.currentTime}`);
     });
 
-    // mute
-    document.getElementById('muteButton').addEventListener('click', function() {
+    // Mute button
+    document.getElementById('mute').addEventListener('click', function() {
         video.muted = !video.muted;
         this.textContent = video.muted ? "Unmute" : "Mute";
         console.log(`Video muted: ${video.muted}`);
     });
 
-    // volume
-    document.getElementById('volumeSlider').addEventListener('input', function() {
+    // Volume slider
+    document.getElementById('slider').addEventListener('input', function() {
         video.volume = this.value / 100;
         console.log(`Volume set to: ${video.volume}`);
     });
 
-    // style toggles
-    document.getElementById('styledButton').addEventListener('click', function() {
+    // Style toggle for 'Old School' style
+    document.getElementById('vintage').addEventListener('click', function() {
         video.classList.add('oldSchool');
         console.log('Styled with oldSchool class');
     });
 
-    document.getElementById('originalButton').addEventListener('click', function() {
+    // Style toggle to return to original
+    document.getElementById('orig').addEventListener('click', function() {
         video.classList.remove('oldSchool');
         console.log('Removed oldSchool class');
     });
